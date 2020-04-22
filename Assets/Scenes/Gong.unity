@@ -623,9 +623,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 1892673352}
-  smoothSpeed: 0.125
+  smoothSpeed: 0.075
   offset: {x: 0, y: 0, z: 0}
-  mouseSensitivity: 0.5
+  mouseSensitivity: 2
 --- !u!4 &1182475552
 Transform:
   m_ObjectHideFlags: 0
@@ -1345,9 +1345,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb009a20840ded42a6530c1a934f9f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  cm1: {fileID: 0}
-  speed: 2
+  speed: 100
+  boostMultiplier: 10
+  boosting:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1182475551}
+        m_MethodName: EnableBoosting
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 10
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &1892673354
 SphereCollider:
   m_ObjectHideFlags: 0
