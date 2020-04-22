@@ -14,13 +14,13 @@ public class Bumper : MonoBehaviour
         bumperCollider = GetComponent<Collider>();
     }
 
-    void FixedUpdate()
-    {
-        string verticalAxis = isBump1 ? "Vertical" : "Vertical2";
-        string horizontalAxis = isBump1 ? "Horizontal" : "Horizontal2";
-
-        transform.Translate(0f, Input.GetAxis(verticalAxis) * speed * Time.fixedDeltaTime, Input.GetAxis(horizontalAxis) * speed * Time.fixedDeltaTime);
-    }
+    // void FixedUpdate()
+    // {
+    //     string verticalAxis = isBump1 ? "Vertical" : "Vertical2";
+    //     string horizontalAxis = isBump1 ? "Horizontal" : "Horizontal2";
+    //
+    //     transform.Translate(0f, Input.GetAxis(verticalAxis) * speed * Time.fixedDeltaTime, Input.GetAxis(horizontalAxis) * speed * Time.fixedDeltaTime);
+    // }
 
     private void OnCollisionExit(Collision collision)
     {
