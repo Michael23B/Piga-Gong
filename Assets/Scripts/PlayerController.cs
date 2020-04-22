@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         var vectorMod = new Vector3(0,0,0);
         
@@ -49,13 +50,19 @@ public class PlayerController : MonoBehaviour
         {
             vectorMod += transform.right;
         }
+        _rb.velocity += vectorMod * (speed * Time.fixedDeltaTime);
+    }
+
+    private void Update()
+    {
+        var vectorMod = new Vector3(0,0,0);
         
         // Double Tap Logic
-        if ( Input.GetKeyDown(KeyCode.D) ){
+        if ( Input.GetKeyDown(KeyCode.D)  &&  !(Input.GetKey(KeyCode.LeftShift))){
  
             if ( _rightButtonCooler > 0 && _rightButtonCount == 1/*Number of Taps you want Minus One*/){
                 boosting.Invoke();
-                vectorMod += transform.right*boostMultiplier*15;
+                vectorMod += transform.right * (boostMultiplier * 15);
             }else{
                 _rightButtonCooler = 0.5f ; 
                 _rightButtonCount += 1 ;
@@ -71,11 +78,11 @@ public class PlayerController : MonoBehaviour
             _rightButtonCount = 0 ;
         }
         
-        if ( Input.GetKeyDown(KeyCode.A) ){
+        if ( Input.GetKeyDown(KeyCode.A) && !(Input.GetKey(KeyCode.LeftShift))){
  
             if ( _leftButtonCooler > 0 && _leftButtonCount == 1/*Number of Taps you want Minus One*/){
                 boosting.Invoke();
-                vectorMod -= transform.right*boostMultiplier*15;
+                vectorMod -= transform.right * (boostMultiplier * 15);
             }else{
                 _leftButtonCooler = 0.5f ; 
                 _leftButtonCount += 1 ;
@@ -91,6 +98,6 @@ public class PlayerController : MonoBehaviour
             _leftButtonCount = 0 ;
         }
 
-        _rb.velocity += vectorMod*speed;
+        _rb.velocity += vectorMod * (speed * Time.deltaTime);
     }
 }
