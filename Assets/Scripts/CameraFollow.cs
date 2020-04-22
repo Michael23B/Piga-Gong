@@ -9,8 +9,10 @@ public class CameraFollow : MonoBehaviour
 
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
-
-    public float mouseSensitivity = 0.5f;
+    public float mouseSensitivity = 1f;
+    
+    private float _boostMultiplier = 1f;
+    private bool _isBoosting = false;
 
     void FixedUpdate()
     {
@@ -20,7 +22,10 @@ public class CameraFollow : MonoBehaviour
 
         // Follow Target
         Vector3 desiredPosition = playerTransform.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(controllerTransform.position, desiredPosition, smoothSpeed);
+        Vector3 smoothedPosition = 
+            _isBoosting ? 
+                Vector3.Lerp(controllerTransform.position, desiredPosition, smoothSpeed * (_boostMultiplier/2)) :  
+                Vector3.Lerp(controllerTransform.position, desiredPosition, smoothSpeed);
 
         transform.position = smoothedPosition;
 
@@ -34,6 +39,15 @@ public class CameraFollow : MonoBehaviour
         // Copy Rotation
         playerTransform.transform.rotation = controllerRotation;
         
-        
+        // Reset BoostState
+        _isBoosting = false;
     }
+
+    public void EnableBoosting(float boostMultiplier)
+    {
+        _boostMultiplier = boostMultiplier;
+        _isBoosting = true;
+    }
+    
+    
 }
