@@ -35,7 +35,7 @@ public class TurnManager : MonoBehaviour
             go.SetActive(true);
         }
 
-        ballRenderer.material = player2Material;
+        // ballRenderer.material = player2Material;
     }
 
     public void OnPlayer2Hit()
@@ -50,6 +50,6 @@ public class TurnManager : MonoBehaviour
             go.SetActive(false);
         }
 
-        ballRenderer.material = player1Material;
+        // ballRenderer.material = player1Material;
     }
 }
