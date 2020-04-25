@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 42011734}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -536,6 +536,8 @@ GameObject:
   - component: {fileID: 358876812}
   - component: {fileID: 358876811}
   - component: {fileID: 358876810}
+  - component: {fileID: 358876817}
+  - component: {fileID: 358876816}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -649,6 +651,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &358876816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358876809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817911d18e38bb542812202c4fa066f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intervalTime: 3
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 358876817}
+        m_MethodName: InstantiateGO
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &358876817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358876809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9205d258ad18a54da9a03b171224dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectToInstantiate: {fileID: 5135575470152333694, guid: 486a4e7c2a2635241a74c766df498a52,
+    type: 3}
 --- !u!1 &533460217
 GameObject:
   m_ObjectHideFlags: 0
@@ -6749,7 +6792,7 @@ GameObject:
   - component: {fileID: 1713426745}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6818,8 +6861,8 @@ MonoBehaviour:
   OnCollision:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 755035113}
-        m_MethodName: OnPlayer1Hit
+      - m_Target: {fileID: 1243978754}
+        m_MethodName: IncreaseScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6902,7 +6945,7 @@ Transform:
   m_Children:
   - {fileID: 578929146}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1750004185
 GameObject:
@@ -7071,7 +7114,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2034462617
 GameObject:
@@ -7241,7 +7284,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114891473}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &2114891477
 Camera:
   m_ObjectHideFlags: 0

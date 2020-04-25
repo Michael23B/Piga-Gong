@@ -13,7 +13,7 @@ public class TurnManager : MonoBehaviour
     private void Start()
     {
         ballRenderer = ball.GetComponent<Renderer>();
-       // Set the initial player based on which direction the ball is moving
+        // Set the initial player based on which direction the ball is moving
         if (ball.startingXDirection < 0)
         {
             OnPlayer2Hit();
