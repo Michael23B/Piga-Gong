@@ -24,6 +24,10 @@ public class Bumper : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
+        if (!collision.gameObject.CompareTag("Ball"))
+        {
+            return;
+        }
         // Add force to reflect the ball in the direction from where we hit it
         if (collision.collider.GetComponent<Ball>()) {
             Collider ballCollider = collision.collider;
